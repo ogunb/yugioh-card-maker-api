@@ -1,5 +1,5 @@
 {
-    "name": "Yu-Gi-Oh Card Generator",
+    "name": "yu-gi-oh-card-generator",
     "version": "1.0.0",
     "description": "Backend node.js application with Typescript for Yu-Gi-Oh Card Generator, following Clean Architecture principles.",
     "private": true,
@@ -7,16 +7,27 @@
     "keywords": [],
     "author": "Ogün Babacan <babacanogun@gmail.com>",
     "license": "MIT",
-
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "npm run serve",
+        "serve": "node dist/index.js",
+        "serve:debug": "nodemon --inspect dist/index.js",
+        "build": "tsc",
+        "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run watch:node\"",
+        "watch:ts": "tsc -w",
+        "watch:node": "nodemon dist/index.js",
+        "debug": "npm run build && npm run watch:debug",
+        "debug:watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch:ts\" \"npm run serve:debug\"",
+        "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix"
     },
-
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^2.17.0",
         "@typescript-eslint/parser": "^2.17.0",
+        "concurrently": "^5.0.2",
         "eslint": "^6.8.0",
         "eslint-config-google": "^0.14.0",
         "typescript": "^3.7.5"
+    },
+    "dependencies": {
+        "nodemon": "^2.0.2"
     }
 }
