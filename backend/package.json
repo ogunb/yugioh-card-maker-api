@@ -1,0 +1,22 @@
+{
+    "name": "Yu-Gi-Oh Card Generator",
+    "version": "1.0.0",
+    "description": "Backend node.js application with Typescript for Yu-Gi-Oh Card Generator, following Clean Architecture principles.",
+    "private": true,
+    "main": "./src/index.ts",
+    "keywords": [],
+    "author": "Ogün Babacan <babacanogun@gmail.com>",
+    "license": "MIT",
+
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.17.0",
+        "@typescript-eslint/parser": "^2.17.0",
+        "eslint": "^6.8.0",
+        "eslint-config-google": "^0.14.0",
+        "typescript": "^3.7.5"
+    }
+}
