@@ -1,10 +1,10 @@
-import uuid from 'uuid';
-import buildMakeCard from './card';
+import uuid from 'uuid'
+import buildMakeCard from './card'
 
-const makeCard = buildMakeCard({ generateId });
+const makeCard = buildMakeCard({ generateId })
 
-export default makeCard;
+export default makeCard
 
-function generateId(creator: string) {
-    return uuid() + creator;
+function generateId (creator: string) {
+    return uuid() + creator
 }
