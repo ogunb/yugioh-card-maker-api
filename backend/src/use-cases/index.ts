@@ -1,5 +1,3 @@
 import makeCreateCard from './create-card'
 
-const createCard = makeCreateCard()
-
-export default createCard
+export const createCard = makeCreateCard()

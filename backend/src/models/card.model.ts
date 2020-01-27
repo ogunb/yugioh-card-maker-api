@@ -11,7 +11,17 @@ interface MakeCardInfo {
     creator: string,
 }
 
-interface Card extends MakeCardInfo {
-    creationDate: Date,
-    serialNumber: string,
+interface Card {
+    getName: () => string,
+    getType: () => 'Monster' | 'Trap' | 'Spell',
+    getAttribute: () => 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND',
+    getLevel: () => 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+    getImageUrl: () => string,
+    getAbilityType: () => string,
+    getDescription: () => string,
+    getAtk: () => number,
+    getDef: () => number,
+    getCreator: () => string,
+    getCreationDate: () => Date,
+    getSerialNumber: () => string,
 }

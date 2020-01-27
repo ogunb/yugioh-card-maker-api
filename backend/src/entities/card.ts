@@ -19,18 +19,18 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
         const serialNumber = generateId(creator)
 
         return Object.freeze({
-            creator,
-            creationDate,
-            serialNumber,
-            name,
-            type,
-            attribute,
-            level,
-            imageURL,
-            abilityType,
-            description,
-            ATK,
-            DEF
+            getCreator: () => creator,
+            getCreationDate: () => creationDate,
+            getSerialNumber: () => serialNumber,
+            getName: () => name,
+            getType: () => type,
+            getAttribute: () => attribute,
+            getLevel: () => level,
+            getImageUrl: () => imageURL,
+            getAbilityType: () => abilityType,
+            getDescription: () => description,
+            getAtk: () => ATK,
+            getDef: () => DEF
         })
     }
 }

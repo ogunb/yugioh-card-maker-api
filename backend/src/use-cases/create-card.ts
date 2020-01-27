@@ -1,4 +1,4 @@
-import makeCard from '../card'
+import { makeCard } from '../entities'
 
 export default function makeCreateCard () {
     return function createCard (request: MakeCardInfo) {

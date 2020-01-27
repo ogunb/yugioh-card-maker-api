@@ -14,7 +14,8 @@
         "serve:ts": "tsc -w",
         "debug": "npm run build && npm run debug:watch",
         "debug:watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run serve:ts\" \"npm run serve:node\"",
-        "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix"
+        "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix",
+        "start": "node ./dist/index.js"
     },
     "devDependencies": {
         "@types/body-parser": "^1.17.1",
