@@ -1,9 +1,11 @@
 import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 
-import { createCard } from './use-cases'
-
+import dotenv from 'dotenv'
+dotenv.config()
 const { PORT } = process.env
+
+import { createCard } from './use-cases'
 
 const app = express()
 app.use(bodyParser.json())
