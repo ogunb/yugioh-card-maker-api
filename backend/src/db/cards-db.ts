@@ -43,7 +43,6 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
                 ${getDef()},
                 ${getCreator()},
                 ${getCreationDate()})`
-        console.log(newCard)
         return newCard
     }
 
