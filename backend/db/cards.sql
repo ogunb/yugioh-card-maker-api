@@ -1,5 +1,5 @@
 CREATE TABLE cards (
-    SerialNumber UUID UNIQUE NOT NULL PRIMARY KEY
+    SerialNumber UUID UNIQUE NOT NULL PRIMARY KEY,
     Name VARCHAR (50) NOT NULL,
     Type VARCHAR (6) NOT NULL DEFAULT 'DARK' CHECK (Type in ('Monster', 'Trap', 'Spell')),
     Attribute VARCHAR (6) NOT NULL DEFAULT 'DARK' CHECK (Attribute in ('DARK', 'DIVINE', 'EARTH', 'FIRE', 'LIGHT', 'WATER', 'WIND')),
@@ -10,5 +10,5 @@ CREATE TABLE cards (
     Atk INT DEFAULT 99 NOT NULL,
     Def INT DEFAULT 99 NOT NULL,
     Creator VARCHAR (32) NOT NULL,
-    CreationDate DATE NOT NULL,
+    CreationDate DATE NOT NULL
 );
