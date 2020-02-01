@@ -9,6 +9,6 @@ CREATE TABLE cards (
     Description VARCHAR (150) NOT NULL DEFAULT '-',
     Atk INT DEFAULT 99 NOT NULL,
     Def INT DEFAULT 99 NOT NULL,
-    Creator VARCHAR (32) NOT NULL,
+    Creator UUID NOT NULL,
     CreationDate DATE NOT NULL
 );

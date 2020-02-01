@@ -1,4 +1,4 @@
-import { Card } from 'card.model'
+import { Card } from 'card-model'
 
 export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) => any }) {
     const sql = makeDb()
@@ -22,8 +22,8 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
         getAtk,
         getDef
     }: Card) {
-        console.log(getCreationDate())
-        const newCard = await sql`INSERT INTO cards (
+        const newCard = await sql`
+            INSERT INTO cards (
                 SerialNumber,
                 Name,
                 Type,
@@ -48,7 +48,11 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
                 ${getAtk()},
                 ${getDef()},
                 ${getCreator()},
-                ${getCreationDate()})`
+                ${getCreationDate()}
+            )
+
+            RETURNING *
+        `
         return newCard
     }
 

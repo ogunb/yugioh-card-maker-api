@@ -1,4 +1,4 @@
-import { MakeCardInfo, Card } from 'card.model'
+import { MakeCardInfo, Card } from 'card-model'
 
 type BuildMakeCardArguments = {
     generateId: () => string

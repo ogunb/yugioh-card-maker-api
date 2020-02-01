@@ -1,6 +1,6 @@
 import { makeCard } from '../entities'
 import { cardDb } from '../db'
-import { MakeCardInfo } from 'card.model'
+import { MakeCardInfo } from 'card-model'
 
 export default function makeCreateCard () {
     return async function createCard (request: MakeCardInfo) {
