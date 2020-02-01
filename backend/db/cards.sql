@@ -10,6 +10,6 @@ CREATE TABLE cards (
     Atk INT DEFAULT 99 NOT NULL,
     Def INT DEFAULT 99 NOT NULL,
     Creator VARCHAR (32) NOT NULL,
-    CreationDate VARCHAR (32) NOT NULL,
+    CreationDate DATE NOT NULL,
     SerialNumber VARCHAR (32) NOT NULL
 );
