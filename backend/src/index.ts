@@ -3,7 +3,7 @@ require('dotenv-flow').config()
 
 import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
-import { createCard } from './use-cases'
+import { createCard, findAllCards } from './use-cases'
 
 const { PORT } = process.env
 
@@ -12,8 +12,12 @@ app.use(bodyParser.json())
 
 app.get('/health-check', (req: Request, res: Response) => res.send('It\'s up.'))
 
-app.post('/card:create', (request: Request, response: Response) => {
-    const card = createCard(request.body)
+app.get('/cards', async (request: Request, response: Response) => {
+    const cards = await findAllCards()
+    return response.send(cards)
+})
+app.post('/cards:create', async (request: Request, response: Response) => {
+    const card = await createCard(request.body)
     return response.send(card)
 })
 

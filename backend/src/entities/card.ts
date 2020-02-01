@@ -17,9 +17,9 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
         DEF,
         creator
     }: MakeCardInfo): Card {
-        const creationDate = new Date()
+        const creationDate = new Date(Date.now())
         const serialNumber = generateId()
-
+        // TODO: Validations.
         return Object.freeze({
             getCreator: () => creator,
             getCreationDate: () => creationDate,

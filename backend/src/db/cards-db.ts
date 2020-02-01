@@ -3,6 +3,11 @@ import { Card } from 'card.model'
 export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) => any }) {
     const sql = makeDb()
 
+    async function findAllCards () {
+        const allCards = await sql`SELECT * FROM cards;`
+        return allCards
+    }
+
     async function createCard ({
         getCreator,
         getCreationDate,
@@ -17,6 +22,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
         getAtk,
         getDef
     }: Card) {
+        console.log(getCreationDate())
         const newCard = await sql`INSERT INTO cards (
                 SerialNumber,
                 Name,
@@ -47,7 +53,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
     }
 
     return Object.freeze({
-        findAllCards: () => console.log('find all cards...'),
+        findAllCards,
         createCard
     })
 }

@@ -5,7 +5,7 @@ import { MakeCardInfo } from 'card.model'
 export default function makeCreateCard () {
     return async function createCard (request: MakeCardInfo) {
         const newCard = makeCard(request)
-        await cardDb.createCard(newCard)
-        return newCard
+        const card = await cardDb.createCard(newCard)
+        return card
     }
 }
