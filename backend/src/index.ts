@@ -1,11 +1,11 @@
+/* eslint-disable import/first */
+require('dotenv-flow').config()
+
 import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
-
-import dotenv from 'dotenv'
-dotenv.config()
-const { PORT } = process.env
-
 import { createCard } from './use-cases'
+
+const { PORT } = process.env
 
 const app = express()
 app.use(bodyParser.json())

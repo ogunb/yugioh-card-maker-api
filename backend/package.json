@@ -8,8 +8,10 @@
     "author": "Ogün Babacan <babacanogun@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "initialize:db": "ts-node ./db",
+        "initialize:db:dev": "NODE_ENV=development ts-node ./db",
         "build": "rimraf dist && tsc",
-        "serve": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run serve:ts\" \"npm run serve:node\"",
+        "serve": "NODE_ENV=development concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run serve:ts\" \"npm run serve:node\"",
         "serve:node": "nodemon dist/index.js",
         "serve:ts": "tsc -w",
         "debug": "npm run build && npm run debug:watch",
@@ -24,7 +26,7 @@
         "@typescript-eslint/eslint-plugin": "^2.17.0",
         "@typescript-eslint/parser": "^2.17.0",
         "concurrently": "^5.0.2",
-        "dotenv": "^8.2.0",
+        "dotenv-flow": "^3.1.0",
         "eslint": "^6.8.0",
         "eslint-config-standard": "^14.1.0",
         "eslint-plugin-import": "^2.20.0",
@@ -33,11 +35,13 @@
         "eslint-plugin-standard": "^4.0.1",
         "nodemon": "^2.0.2",
         "rimraf": "^3.0.0",
+        "ts-node": "^8.6.2",
         "typescript": "^3.7.5"
     },
     "dependencies": {
         "body-parser": "^1.19.0",
         "express": "^4.17.1",
+        "postgres": "^1.0.2",
         "uuid": "^3.4.0"
     }
 }
