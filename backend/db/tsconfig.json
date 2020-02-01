@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "paths": {
+            "*": [
+                "/backend/node_modules/*",
+                "/backend/src/models/*"
+            ]
+        },
+    },
+    "extends": "../tsconfig",
+}

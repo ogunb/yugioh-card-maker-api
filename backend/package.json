@@ -11,13 +11,11 @@
         "initialize:db": "ts-node ./db",
         "initialize:db:dev": "NODE_ENV=development ts-node ./db",
         "build": "rimraf dist && tsc",
-        "serve": "NODE_ENV=development concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run serve:ts\" \"npm run serve:node\"",
+        "serve": "NODE_ENV=development npm run serve:ts",
+        "serve:production": "npm run serve:ts",
         "serve:node": "nodemon dist/index.js",
-        "serve:ts": "tsc -w",
-        "debug": "npm run build && npm run debug:watch",
-        "debug:watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run serve:ts\" \"npm run serve:node\"",
-        "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix",
-        "start": "node ./dist/index.js"
+        "serve:ts": "ts-node-dev ./src",
+        "lint": "eslint \"**/*.ts\" --quiet --fix"
     },
     "devDependencies": {
         "@types/body-parser": "^1.17.1",
@@ -36,6 +34,7 @@
         "nodemon": "^2.0.2",
         "rimraf": "^3.0.0",
         "ts-node": "^8.6.2",
+        "ts-node-dev": "^1.0.0-pre.44",
         "typescript": "^3.7.5"
     },
     "dependencies": {

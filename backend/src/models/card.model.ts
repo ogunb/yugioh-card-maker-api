@@ -1,4 +1,4 @@
-interface MakeCardInfo {
+export interface MakeCardInfo {
     name: string,
     type: 'Monster' | 'Trap' | 'Spell',
     attribute: 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND',
@@ -11,7 +11,7 @@ interface MakeCardInfo {
     creator: string,
 }
 
-interface Card {
+export interface Card {
     getName: () => string,
     getType: () => 'Monster' | 'Trap' | 'Spell',
     getAttribute: () => 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND',

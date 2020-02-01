@@ -1,5 +1,7 @@
+import { MakeCardInfo, Card } from 'card.model'
+
 type BuildMakeCardArguments = {
-    generateId: (creator: string) => string
+    generateId: () => string
 }
 
 export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): (info: MakeCardInfo) => Card {
@@ -16,7 +18,7 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
         creator
     }: MakeCardInfo): Card {
         const creationDate = new Date()
-        const serialNumber = generateId(creator)
+        const serialNumber = generateId()
 
         return Object.freeze({
             getCreator: () => creator,

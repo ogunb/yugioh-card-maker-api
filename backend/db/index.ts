@@ -1,5 +1,4 @@
 import path from 'path'
-
 import { makeDb } from '../src/db'
 require('dotenv-flow').config();
 

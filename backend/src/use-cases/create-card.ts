@@ -1,9 +1,11 @@
 import { makeCard } from '../entities'
+import { cardDb } from '../db'
+import { MakeCardInfo } from 'card.model'
 
 export default function makeCreateCard () {
-    return function createCard (request: MakeCardInfo) {
+    return async function createCard (request: MakeCardInfo) {
         const newCard = makeCard(request)
-        // TODO: save to db.
+        await cardDb.createCard(newCard)
         return newCard
     }
 }

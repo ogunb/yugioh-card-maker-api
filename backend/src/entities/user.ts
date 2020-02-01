@@ -1,3 +1,5 @@
+import { User } from 'user.model'
+
 type BuildMakeUserArguments = {
     generateId: () => string
 }

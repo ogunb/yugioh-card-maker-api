@@ -1,6 +1,6 @@
 type CardIds = string[];
 
-interface User {
+export interface User {
     getUserId: () => string,
     getCards: () => CardIds,
     addCard: (cardSerialNumber: string) => {
