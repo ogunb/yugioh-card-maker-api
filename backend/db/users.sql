@@ -1,0 +1,4 @@
+CREATE TABLE users (
+    Id UUID NOT NULL PRIMARY KEY,
+    Cards TEXT [] DEFAULT '{}'
+);
