@@ -20,10 +20,10 @@ export function makeExpressCallback (controller: (httpRequest: HttpRequest) => a
         try {
             const httpResponse = await controller(httpRequest)
 
-            if (httpResponse.headers) {
-                res.set(httpResponse.headers)
-            }
-
+            res.header({
+                'Content-Type': 'application/json',
+                ...httpResponse.headers
+            })
             res.type('json')
             res.status(httpResponse.statusCode).send(httpResponse.body)
         } catch (err) {
