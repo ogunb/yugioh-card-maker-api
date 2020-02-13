@@ -4,7 +4,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
     const sql = makeDb()
 
     async function findAllCards () {
-        const allCards = await sql`SELECT * FROM cards;`
+        const allCards = await sql`SELECT * FROM cards ORDER BY creationDate DESC;`
         return allCards
     }
 
