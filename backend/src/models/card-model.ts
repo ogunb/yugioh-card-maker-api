@@ -1,7 +1,10 @@
+export type CardTypes = 'Monster' | 'Trap' | 'Spell';
+export type Attributes = 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND';
+
 export interface MakeCardInfo {
     name: string,
-    type: 'Monster' | 'Trap' | 'Spell',
-    attribute: 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND',
+    typeId: number,
+    attributeId: number,
     level: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
     imageURL: string,
     abilityType: string,
@@ -13,8 +16,10 @@ export interface MakeCardInfo {
 
 export interface Card {
     getName: () => string,
-    getType: () => 'Monster' | 'Trap' | 'Spell',
-    getAttribute: () => 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND',
+    getTypeId: () => number,
+    getTypeName: () => CardTypes,
+    getAttributeId: () => number,
+    getAttributeName: () => Attributes,
     getLevel: () => 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
     getImageUrl: () => string,
     getAbilityType: () => string,

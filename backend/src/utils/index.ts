@@ -31,3 +31,7 @@ export function makeExpressCallback (controller: (httpRequest: HttpRequest) => a
         }
     }
 }
+
+export function capitalizeString (str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}
