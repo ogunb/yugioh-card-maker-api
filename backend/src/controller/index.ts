@@ -1,6 +1,6 @@
-import makeGetAllCards from './get-all-cards'
-import { findAllCards } from '../use-cases'
+import makeGetCards from './get-cards'
+import { findCards } from '../use-cases'
 
-const getAllCards = makeGetAllCards({ findAllCards })
+const getCards = makeGetCards({ findCards })
 
-export { getAllCards }
+export { getCards }

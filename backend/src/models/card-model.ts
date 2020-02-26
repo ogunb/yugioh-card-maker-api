@@ -30,3 +30,8 @@ export interface Card {
     getCreationDate: () => Date,
     getSerialNumber: () => string,
 }
+
+export interface GetCardsPaging {
+    page: number
+    size: number
+}

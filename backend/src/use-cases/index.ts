@@ -1,5 +1,5 @@
 import makeCreateCard from './create-card'
-import makeFindAllCards from './find-all-cards'
+import makeFindCards from './find-cards'
 
 export const createCard = makeCreateCard()
-export const findAllCards = makeFindAllCards()
+export const findCards = makeFindCards()

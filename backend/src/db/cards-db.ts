@@ -1,10 +1,15 @@
-import { Card } from 'card-model'
+import { Card, GetCardsPaging } from 'card-model'
 
 export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) => any }) {
     const sql = makeDb()
 
-    async function findAllCards () {
-        const allCards = await sql`SELECT * FROM cards ORDER BY creationDate DESC;`
+    async function findCards ({ page, size }: GetCardsPaging) {
+        const allCards = await sql`
+            SELECT * FROM cards
+            ORDER BY creationDate DESC
+            OFFSET ${page}
+            LIMIT ${size};
+        `
 
         return allCards
     }
@@ -58,7 +63,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
     }
 
     return Object.freeze({
-        findAllCards,
+        findCards,
         createCard
     })
 }
