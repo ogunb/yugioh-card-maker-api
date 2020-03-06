@@ -35,3 +35,24 @@ export interface GetCardsPaging {
     page: number
     size: number
 }
+
+export interface CardResponse {
+    name: string,
+    type: {
+        id: number,
+        name: string
+    },
+    attribute: {
+        id: number,
+        name: string
+    },
+    level: number,
+    imageUrl: string,
+    abilityType: string,
+    description: string,
+    atk: number,
+    def: number,
+    creator: string,
+    creationDate: Date,
+    serialNumber: string
+}
