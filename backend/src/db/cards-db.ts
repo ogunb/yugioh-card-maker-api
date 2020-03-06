@@ -6,7 +6,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
     async function findCards ({ page, size }: GetCardsPaging) {
         const allCards = await sql`
             SELECT * FROM cards
-            ORDER BY creationDate DESC
+            ORDER BY creation_date DESC
             OFFSET ${page}
             LIMIT ${size};
         `
@@ -30,18 +30,18 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
     }: Card) {
         const newCard = await sql`
             INSERT INTO cards (
-                SerialNumber,
-                Name,
-                TypeId,
-                AttributeId,
-                Level,
-                ImageUrl,
-                AbilityType,
-                Description,
-                Atk,
-                Def,
-                Creator,
-                CreationDate
+                serial_number,
+                name,
+                type_id,
+                attribute_id,
+                level,
+                image_url,
+                ability_type,
+                description,
+                atk,
+                def,
+                creator,
+                creation_date
             ) VALUES (
                 ${getSerialNumber()},
                 ${getName()},
@@ -59,7 +59,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
 
             RETURNING *
         `
-        return newCard
+        return newCard[0]
     }
 
     return Object.freeze({

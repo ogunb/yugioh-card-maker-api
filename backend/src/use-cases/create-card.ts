@@ -1,11 +1,13 @@
 import { makeCard } from '../entities'
 import { cardDb } from '../db'
-import { MakeCardInfo } from 'card-model'
+import { Card, MakeCardInfo } from 'card-model'
 
-export default function makeCreateCard () {
+export type CreateCardUseCase = (arg: MakeCardInfo) => Promise<Card>
+export default function makeCreateCard (): CreateCardUseCase {
     return async function createCard (request: MakeCardInfo) {
         const newCard = makeCard(request)
         const card = await cardDb.createCard(newCard)
-        return card
+
+        return makeCard(card)
     }
 }

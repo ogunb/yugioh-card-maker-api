@@ -1,4 +1,4 @@
-import { getCards } from '../controller'
+import { getCardsController, createCardController } from '../controller'
 import { Request, Response } from 'express'
 import { HttpRequest } from 'http-request'
 import MakeRoute from 'make-route'
@@ -11,8 +11,13 @@ export default function makeCardsRoute ({ makeCallback }: MakeCardsRouteArgs): r
     return Object.freeze([
         {
             route: '/',
-            controller: makeCallback(getCards),
+            controller: makeCallback(getCardsController),
             method: 'get'
+        },
+        {
+            route: '/',
+            controller: makeCallback(createCardController),
+            method: 'post'
         }
     ])
 }

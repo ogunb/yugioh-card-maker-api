@@ -13,7 +13,7 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
         typeId,
         attributeId,
         level,
-        imageURL,
+        imageUrl,
         abilityType,
         description,
         ATK = 9999,
@@ -41,7 +41,7 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
             throw new Error('Card level must be between 1 and 12.')
         }
 
-        if (!imageURL.includes('https://')) {
+        if (imageUrl && !imageUrl.includes('https://')) {
             throw new Error('Card image url must provide a secure connection. (e.g. https://)')
         }
 
@@ -74,7 +74,7 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
             getAttributeId: () => attributeId,
             getAttributeName: () => capitalizedAttribute,
             getLevel: () => level,
-            getImageUrl: () => imageURL,
+            getImageUrl: () => imageUrl,
             getAbilityType: () => abilityType,
             getDescription: () => description,
             getAtk: () => ATK,

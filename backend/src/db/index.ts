@@ -17,7 +17,10 @@ export function makeDb () {
         username: DB_USERNAME,
         password: DB_PASSWORD,
         max: 10,
-        timeout: 60
+        timeout: 60,
+        transform: {
+            column: postgres.toCamel
+        }
     })
 
     return sql

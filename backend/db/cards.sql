@@ -1,14 +1,14 @@
 CREATE TABLE cards (
-    SerialNumber UUID UNIQUE NOT NULL PRIMARY KEY,
-    Name VARCHAR (50) NOT NULL,
-    Type VARCHAR (7) NOT NULL DEFAULT 'Monster' CHECK (Type in ('Monster', 'Trap', 'Spell')),
-    Attribute VARCHAR (6) NOT NULL DEFAULT 'DARK' CHECK (Attribute in ('DARK', 'DIVINE', 'EARTH', 'FIRE', 'LIGHT', 'WATER', 'WIND')),
-    Level INT DEFAULT 1 NOT NULL CHECK (Level >= 1 AND Level <= 12),
-    ImageUrl VARCHAR (1000),
-    AbilityType VARCHAR (150) NOT NULL DEFAULT '-',
-    Description VARCHAR (150) NOT NULL DEFAULT '-',
-    Atk INT DEFAULT 99 NOT NULL,
-    Def INT DEFAULT 99 NOT NULL,
-    Creator UUID NOT NULL,
-    CreationDate TIMESTAMP WITH TIME ZONE NOT NULL
+    serial_number UUID UNIQUE NOT NULL PRIMARY KEY,
+    name VARCHAR (50) NOT NULL,
+    type_id INT NOT NULL DEFAULT 1,
+    attribute_id INT NOT NULL DEFAULT 1,
+    level INT DEFAULT 1 NOT NULL CHECK (Level >= 1 AND Level <= 12),
+    image_url VARCHAR (1000),
+    ability_type VARCHAR (150) NOT NULL DEFAULT '-',
+    description VARCHAR (150) NOT NULL DEFAULT '-',
+    atk INT DEFAULT 99 NOT NULL,
+    def INT DEFAULT 99 NOT NULL,
+    creator UUID NOT NULL,
+    creation_date TIMESTAMP WITH TIME ZONE NOT NULL
 );
