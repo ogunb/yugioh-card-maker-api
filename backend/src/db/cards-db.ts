@@ -1,9 +1,9 @@
-import { Card, GetCardsPaging } from 'card-model'
+import { Card, GetCardsPaging, MakeCardInfo } from 'card-model'
 
 export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) => any }) {
     const sql = makeDb()
 
-    async function findCards ({ page, size }: GetCardsPaging) {
+    async function findCards ({ page, size }: GetCardsPaging): Promise<MakeCardInfo[]> {
         const allCards = await sql`
             SELECT * FROM cards
             ORDER BY creation_date DESC

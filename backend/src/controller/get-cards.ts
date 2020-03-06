@@ -1,6 +1,7 @@
 import { HttpRequest } from '../models/http-request'
 import { FindCards } from '../use-cases/find-cards'
 import { GetCardsPaging } from '../models/card-model'
+import { generateCardResponse } from './../responses/generate-card-response'
 
 interface MakeGetCardsArgs {
     findCards: FindCards
@@ -17,7 +18,7 @@ export default function makeGetCards ({ findCards }: MakeGetCardsArgs) {
 
             return {
                 statusCode: 200,
-                body: allCards
+                body: allCards.map(generateCardResponse)
             }
         } catch (err) {
             console.error(err)
