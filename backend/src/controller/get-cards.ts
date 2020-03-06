@@ -1,8 +1,9 @@
 import { HttpRequest } from '../models/http-request'
-import { Card, GetCardsPaging } from 'card-model'
+import { FindCards } from '../use-cases/find-cards'
+import { GetCardsPaging } from '../models/card-model'
 
 interface MakeGetCardsArgs {
-    findCards: (arg0: GetCardsPaging) => Promise<Card[]>
+    findCards: FindCards
 }
 
 interface GetCardsArgs extends HttpRequest {
