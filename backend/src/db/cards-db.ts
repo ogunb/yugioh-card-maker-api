@@ -28,7 +28,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
         getAtk,
         getDef
     }: Card) {
-        const newCard = await sql`
+        const [newCard] = await sql`
             INSERT INTO cards (
                 serial_number,
                 name,
@@ -59,11 +59,21 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
 
             RETURNING *
         `
-        return newCard[0]
+        return newCard
+    }
+
+    async function findCard ({ serialNumber }: { serialNumber: string }) {
+        const [card] = await sql`
+            SELECT * FROM cards
+            WHERE serial_number = ${serialNumber}
+        `
+
+        return card
     }
 
     return Object.freeze({
         findCards,
+        findCard,
         createCard
     })
 }
