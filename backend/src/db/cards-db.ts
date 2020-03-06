@@ -71,9 +71,19 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
         return card
     }
 
+    async function findUserCard ({ creator }: { creator: string }): Promise<PlainCard> {
+        const [card] = await sql`
+            SELECT * FROM cards
+            WHERE creator = ${creator}
+        `
+
+        return card
+    }
+
     return Object.freeze({
         findCards,
         findCard,
-        createCard
+        createCard,
+        findUserCard
     })
 }
