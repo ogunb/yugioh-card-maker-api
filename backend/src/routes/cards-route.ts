@@ -1,4 +1,4 @@
-import { getCardsController, createCardController } from '../controller'
+import { getCardsController, createCardController, getCardController } from '../controller'
 import { Request, Response } from 'express'
 import { HttpRequest } from 'http-request'
 import MakeRoute from 'make-route'
@@ -18,6 +18,11 @@ export default function makeCardsRoute ({ makeCallback }: MakeCardsRouteArgs): r
             route: '/',
             controller: makeCallback(createCardController),
             method: 'post'
+        },
+        {
+            route: '/:serialNumber',
+            controller: makeCallback(getCardController),
+            method: 'get'
         }
     ])
 }

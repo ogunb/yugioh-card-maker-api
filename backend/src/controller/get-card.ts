@@ -7,13 +7,13 @@ interface MakeGetCardsArgs {
 }
 
 interface GetCardsArgs extends HttpRequest {
-    body: {
+    params: {
         serialNumber: string,
     }
 }
 
-export default function makeGetCards ({ findCard }: MakeGetCardsArgs) {
-    return async function getCards ({ body: { serialNumber } }: GetCardsArgs) {
+export default function makeGetCardController ({ findCard }: MakeGetCardsArgs) {
+    return async function getCardController ({ params: { serialNumber } }: GetCardsArgs) {
         try {
             const card = await findCard({ serialNumber })
 

@@ -1,8 +1,10 @@
+import { findCards, createCard, findCard } from '../use-cases'
 import makeGetCards from './get-cards'
 import makeCreateCard from './create-card'
-import { findCards, createCard } from '../use-cases'
+import makeGetCardController from './get-card'
 
 const getCardsController = makeGetCards({ findCards })
 const createCardController = makeCreateCard({ createCard })
+const getCardController = makeGetCardController({ findCard })
 
-export { getCardsController, createCardController }
+export { getCardsController, createCardController, getCardController }
