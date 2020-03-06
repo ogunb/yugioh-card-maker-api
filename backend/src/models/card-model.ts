@@ -12,6 +12,8 @@ export interface MakeCardInfo {
     ATK: number,
     DEF: number,
     creator: string,
+    serialNumber?: string,
+    creationDate?: Date,
 }
 
 export interface Card {

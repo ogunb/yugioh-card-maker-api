@@ -9,6 +9,8 @@ type BuildMakeCardArguments = {
 
 export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): (info: MakeCardInfo) => Card {
     return function makeCard ({
+        serialNumber,
+        creationDate,
         name,
         typeId,
         attributeId,
@@ -59,15 +61,13 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
             }
         }
 
-        const creationDate = new Date()
-        const serialNumber = generateId()
         const capitalizedType = capitalizeString(cardTypes[typeId]) as CardTypes
         const capitalizedAttribute = attributes[attributeId].toUpperCase() as Attributes
 
         return Object.freeze({
             getCreator: () => creator,
-            getCreationDate: () => creationDate,
-            getSerialNumber: () => serialNumber,
+            getCreationDate: () => creationDate || new Date(),
+            getSerialNumber: () => serialNumber || generateId(),
             getName: () => name,
             getTypeId: () => typeId,
             getTypeName: () => capitalizedType,
