@@ -1,4 +1,4 @@
-import { MakeCardInfo, Card, CardTypes, Attributes } from 'card-model'
+import { PlainCard, Card, CardTypes, Attributes } from 'card-model'
 import { capitalizeString } from '../utils'
 import { cardTypes } from '../enums/card-types'
 import { attributes } from '../enums/attributes'
@@ -7,7 +7,7 @@ type BuildMakeCardArguments = {
     generateId: () => string
 }
 
-export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): (info: MakeCardInfo) => Card {
+export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): (info: PlainCard) => Card {
     return function makeCard ({
         serialNumber,
         creationDate,
@@ -21,7 +21,7 @@ export default function buildMakeCard ({ generateId }: BuildMakeCardArguments): 
         ATK = 9999,
         DEF = 9999,
         creator
-    }: MakeCardInfo): Card {
+    }: PlainCard): Card {
         if (!creator) {
             throw new Error('Cards must have a creator.')
         }

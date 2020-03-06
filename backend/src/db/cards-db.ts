@@ -1,9 +1,9 @@
-import { Card, GetCardsPaging, MakeCardInfo } from 'card-model'
+import { Card, GetCardsPaging, PlainCard } from 'card-model'
 
 export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) => any }) {
     const sql = makeDb()
 
-    async function findCards ({ page, size }: GetCardsPaging): Promise<MakeCardInfo[]> {
+    async function findCards ({ page, size }: GetCardsPaging): Promise<PlainCard[]> {
         const allCards = await sql`
             SELECT * FROM cards
             ORDER BY creation_date DESC
@@ -27,7 +27,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
         getDescription,
         getAtk,
         getDef
-    }: Card) {
+    }: Card): Promise<PlainCard> {
         const [newCard] = await sql`
             INSERT INTO cards (
                 serial_number,
@@ -62,7 +62,7 @@ export default function makeCardDb ({ makeDb }: { makeDb: () => (...args: any) =
         return newCard
     }
 
-    async function findCard ({ serialNumber }: { serialNumber: string }) {
+    async function findCard ({ serialNumber }: { serialNumber: string }): Promise<PlainCard> {
         const [card] = await sql`
             SELECT * FROM cards
             WHERE serial_number = ${serialNumber}

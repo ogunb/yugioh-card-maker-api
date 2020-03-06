@@ -1,7 +1,7 @@
 export type CardTypes = 'Monster' | 'Trap' | 'Spell';
 export type Attributes = 'DARK' | 'DIVINE' | 'EARTH' | 'FIRE' | 'LIGHT' | 'WATER' | 'WIND';
 
-export interface MakeCardInfo {
+export interface PlainCard {
     name: string,
     typeId: number,
     attributeId: number,

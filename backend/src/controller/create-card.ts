@@ -1,5 +1,5 @@
 import { HttpRequest } from '../models/http-request'
-import { MakeCardInfo } from '../models/card-model'
+import { PlainCard } from '../models/card-model'
 import { CreateCardUseCase } from '../use-cases/create-card'
 import { generateCardResponse } from '../responses/generate-card-response'
 
@@ -8,7 +8,7 @@ interface makeCreateCardArgs {
 }
 
 interface CreateCardArgs extends HttpRequest {
-    body: MakeCardInfo
+    body: PlainCard
 }
 
 export default function makeCreateCard ({ createCard }: makeCreateCardArgs) {
