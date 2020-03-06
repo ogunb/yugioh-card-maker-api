@@ -1,11 +1,11 @@
-import { User } from 'user-model'
+import { User, PlainUser } from 'user-model'
 
 type BuildMakeUserArguments = {
     generateId: () => string
 }
 
-export default function buildMakeUser ({ generateId }: BuildMakeUserArguments): (arg0: { userId: string }) => User {
-    return function makeUser ({ userId = generateId() }): User {
+export default function buildMakeUser ({ generateId }: BuildMakeUserArguments): (arg0?: PlainUser) => User {
+    return function makeUser ({ userId = generateId() } = {}): User {
         return Object.freeze({
             getUserId: () => userId
         })

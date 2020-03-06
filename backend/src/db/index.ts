@@ -1,5 +1,6 @@
 import postgres from 'postgres'
 import makeCardDb from './cards-db'
+import makeUserDb from './user-db'
 
 export function makeDb () {
     const {
@@ -27,3 +28,4 @@ export function makeDb () {
 }
 
 export const cardDb = makeCardDb({ makeDb })
+export const userDb = makeUserDb({ makeDb })
