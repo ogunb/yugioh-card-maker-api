@@ -2,4 +2,6 @@ node_modules
 .yarn
 .pnp.js
 dist
+.env
+.env.development
 .env.local
