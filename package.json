@@ -11,7 +11,7 @@
         "initialize:db": "ts-node ./db",
         "initialize:db:dev": "NODE_ENV=development ts-node ./db",
         "build": "rimraf dist && tsc",
-        "start": "npm run serve:production",
+        "start": "npm run serve:node",
         "serve": "NODE_ENV=development npm run serve:ts",
         "serve:production": "npm run serve:ts",
         "serve:node": "nodemon dist/index.js",
