@@ -8,10 +8,21 @@ export function makeDb () {
         DB_PORT,
         DB_NAME,
         DB_USERNAME,
-        DB_PASSWORD
+        DB_PASSWORD,
+        DATABASE_URL
     } = process.env
 
-    const sql = postgres('localhost', {
+    if (DATABASE_URL) {
+        return postgres(DATABASE_URL, {
+            max: 10,
+            timeout: 60,
+            transform: {
+                column: postgres.toCamel
+            }
+        })
+    }
+
+    return postgres('localhost', {
         host: DB_HOST,
         port: DB_PORT,
         database: DB_NAME,
@@ -23,8 +34,6 @@ export function makeDb () {
             column: postgres.toCamel
         }
     })
-
-    return sql
 }
 
 export const cardDb = makeCardDb({ makeDb })
